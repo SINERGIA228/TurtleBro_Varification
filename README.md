@@ -7,6 +7,7 @@
 Базовый мануал по старту работы с роботом - https://manual.turtlebro.ru/
 Основной репозиторий - https://github.com/voltbro    
 Параметры и настройка через launch -  https://manual.turtlebro.ru/paket-turtlebro/params
+Подключение робота к Сети - https://manual.turtlebro.ru/pervoe-vklyuchenie-i-nastroika-robota/networking
 ```
 Основные команды для проверки роботоспособности робота:
 
@@ -97,3 +98,4 @@ FastLed 30 пин 24 светодиода
 Кнопки D22-D25 работают:	
 ```
 Arduino > exe > digital > button
+```
