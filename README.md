@@ -3,9 +3,9 @@
 # Основные материалы для работы с роботом
 
 ```
-[Введение в ROS](http://docs.voltbro.ru/starting-ros/) - http://docs.voltbro.ru/starting-ros/
-[Образовательный портал с уроками ROS](http://learn.voltbro.ru) -  http://learn.voltbro.ru
-[Базовый мануал по старту работы с роботом](https://manual.turtlebro.ru/) - https://manual.turtlebro.ru/
+Введение в ROS - http://docs.voltbro.ru/starting-ros/
+Образовательный портал с уроками ROS -  http://learn.voltbro.ru
+Базовый мануал по старту работы с роботом - https://manual.turtlebro.ru/
 Основной репозиторий - https://github.com/voltbro    
 Параметры и настройка через launch -  https://manual.turtlebro.ru/paket-turtlebro/params
 Подключение робота к Сети - https://manual.turtlebro.ru/pervoe-vklyuchenie-i-nastroika-robota/networking
