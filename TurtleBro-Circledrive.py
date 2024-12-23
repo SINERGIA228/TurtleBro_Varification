@@ -1,63 +1,70 @@
 # -*- coding: utf-8 -*-
-import rospy
-from sensor_msgs.msg import LaserScan
-from geometry_msgs.msg import Twist
-import threading
+import rospy  # Импортируем библиотеку rospy для работы с ROS, для работы с платой Arduino mega необходимо использовать библеотеку pyserial
+from sensor_msgs.msg import LaserScan  # Импортируем сообщения типа LaserScan (не используются в данном коде, но можно добавить для работы с лазерным сканером)
+from geometry_msgs.msg import Twist  # Импортируем сообщение типа Twist для управления движением робота
+import threading  # Импортируем библиотеку threading для работы с потоками
 
-# Флаг для завершения работы
+# Флаг для завершения работы программы
 should_exit = False
 
 def input_thread():
-    global should_exit
+    global should_exit  # Объявляем, что будем использовать глобальную переменную
     input("Нажмите Enter, чтобы остановить робота и завершить выполнение программы...\n")
-    should_exit = True
+    should_exit = True  # Устанавливаем флаг завершения, когда пользователь нажимает Enter
 
+# Инициализация узла ROS с именем "circle_movement"
 rospy.init_node(name="circle_movement")
 
-# Создаем Publisher для управления роботом
+# Создаем Publisher для управления роботом, который будет публиковать сообщения типа Twist на тему /cmd_vel
 cmd_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 
-# Ввод радиуса круга и проверка корректности ввода
+# Цикл для ввода радиуса круга и проверки корректности ввода
 while True:
     try:
-        radius = float(input("Введите радиус круга в метрах: "))  # Радиус круга
-        if radius <= 0:
+        # Запрашиваем у пользователя ввод радиуса круга в метрах
+        radius = float(input("Введите радиус круга в метрах: "))  # Преобразуем ввод пользователя в число с плавающей запятой
+        if radius <= 0:  # Проверяем, что радиус положительный
             print("Радиус должен быть положительным числом. Попробуйте еще раз.")
-            continue
-        break
-    except ValueError:
+            continue  # Если радиус некорректный, продолжаем цикл
+        break  # Если радиус корректный, выходим из цикла
+    except ValueError:  # Обрабатываем исключение, если ввод не является числом
         print("Пожалуйста, введите допустимое числовое значение.")
 
-linear_speed = 0.25  # линейная скорость в м/с
-angular_speed = linear_speed / radius  # угловая скорость для движения по кругу
-# Выбор направления вращения
+# Устанавливаем линейную скорость в м/с
+linear_speed = 0.25  # Линейная скорость
+# Вычисляем угловую скорость на основе радиуса
+angular_speed = linear_speed / radius  # Угловая скорость для движения по кругу
+
+# Запрос направления вращения у пользователя
 direction = input("Выберите направление вращения (2 - по часовой стрелке, 1 - против): ")
 if direction == "1":
     angular_speed = -angular_speed  # Изменяем знак угловой скорости для вращения по часовой стрелке
+
 def move_in_circle():
-    global should_exit
-    twist = Twist()
+    global should_exit  # Объявляем, что будем использовать глобальную переменную
+    twist = Twist()  # Создаем объект типа Twist для управления движением
 
     # Настраиваем линейную и угловую скорости
-    twist.linear.x = linear_speed
-    twist.angular.z =-angular_speed
+    twist.linear.x = linear_speed  # Устанавливаем линейную скорость
+    twist.angular.z = angular_speed  # Устанавливаем угловую скорость
 
-    while not rospy.is_shutdown() and not should_exit:
+    # Основной цикл движения
+    while not rospy.is_shutdown() and not should_exit:  # Проверяем, что программа не завершена и флаг не установлен
         cmd_pub.publish(twist)  # Публикуем команду движения
         rospy.sleep(0.1)  # Небольшая задержка для регулирования частоты публикации
     # Остановка робота после выхода из цикла
-    twist.linear.x = 0.0
-    twist.angular.z = 0.0
+    twist.linear.x = 0.0  # Устанавливаем линейную скорость в 0
+    twist.angular.z = 0.0  # Устанавливаем угловую скорость в 0
     cmd_pub.publish(twist)  # Публикуем команду остановки
 
 if __name__ == '__main__':
     try:
         # Запуск потока для ввода с клавиатуры
-        thread = threading.Thread(target=input_thread)
-        thread.start()
+        thread = threading.Thread(target=input_thread)  # Создаем новый поток для функции input_thread
+        thread.start()  # Запускаем поток
 
-        move_in_circle()
+        move_in_circle()  # Запускаем функцию для движения по кругу
     except rospy.ROSInterruptException:
-        pass  # Завершение выполнения при исключении
+        pass  # Завершение выполнения при исключении, связанном с ROS
     finally:
-        print("Завершение программы.")
+        print("Завершение программы.")  # Выводим сообщение о завершении программы
