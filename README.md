@@ -9,7 +9,7 @@
 Основной репозиторий - https://github.com/voltbro    
 Параметры и настройка через launch -  https://manual.turtlebro.ru/paket-turtlebro/params
 Подключение робота к Сети - https://manual.turtlebro.ru/pervoe-vklyuchenie-i-nastroika-robota/networking
-Работа с регулярными выражениями для пойска информации - https://github.com/Picculi/regex_patterns
+Работа с регулярными выражениями для поиска информации - https://github.com/Picculi/regex_patterns
 Управление Роботом через Arduino с Использованием Serial1 - https://github.com/SINERGIA228/TurtleBroChoiceNavigation
 ```
 ## Основные команды для проверки роботоспособности робота:
@@ -66,6 +66,10 @@ rostopic list
 Так же, как и наличие сервисов:
 ```
 rosservise list
+```
+Как и наличие узлов:
+```
+rosnode list
 ```
 
 Температура процессора в градусах (С):	
