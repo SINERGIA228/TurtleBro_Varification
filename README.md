@@ -77,7 +77,7 @@ rosnode list
 vcgencmd measure_temp
 ```
 
-Максимальное разрешение камеры (пикселей):	
+разрешение камеры (пикселей):	
 ```
 v4l2-ctl --list-formats-ext
 ```
