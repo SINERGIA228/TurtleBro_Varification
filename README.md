@@ -9,7 +9,7 @@
 Параметры и настройка через launch -  https://manual.turtlebro.ru/paket-turtlebro/params
 Подключение робота к Сети - https://manual.turtlebro.ru/pervoe-vklyuchenie-i-nastroika-robota/networking
 ```
-Основные команды для проверки роботоспособности робота:
+## Основные команды для проверки роботоспособности робота:
 
 Присвоенное имя робота в сети:	
 ```
