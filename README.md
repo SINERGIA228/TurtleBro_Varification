@@ -48,11 +48,7 @@ pip3 show rospy
 ```
 rosversion turtlebro
 ```
-Версия прошивки микроконтроллера материнской платы:	
-```
-rosservice call /board_info "request: {}"
-```
-Серийный номер системной платы робота (mcu_id):	
+Версия прошивки микроконтроллера материнской платы и серийный номер системной платы робота (mcu_id):	
 ```
 rosservice call /board_info "request: {}"
 ```
