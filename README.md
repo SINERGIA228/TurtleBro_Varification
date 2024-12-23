@@ -1,5 +1,5 @@
 <img src="https://user-images.githubusercontent.com/57194638/201707251-5aa29404-2494-4e16-be4a-0cd821a1c0d9.png" width="800" height="300">
-#  Основные материалы для работы с роботом
+# Основные материалы для работы с роботом
 
 ```
 Введение в ROS - http://docs.voltbro.ru/starting-ros/
