@@ -4,13 +4,13 @@
 
 ```
 Введение в ROS - http://docs.voltbro.ru/starting-ros/
-Образовательный портал с уроками ROS -  http://learn.voltbro.ru
-Базовый мануал по старту работы с роботом - https://manual.turtlebro.ru/
-Основной репозиторий - https://github.com/voltbro    
-Параметры и настройка через launch -  https://manual.turtlebro.ru/paket-turtlebro/params
+Образовательный портал с уроками ROS - http://learn.voltbro.ru
+Базовый мануал для работы с роботом - https://manual.turtlebro.ru/
+Основная страница - https://github.com/voltbro    
+Параметры и настройка через launch - https://manual.turtlebro.ru/paket-turtlebro/params
 Подключение робота к Сети - https://manual.turtlebro.ru/pervoe-vklyuchenie-i-nastroika-robota/networking
 Работа с регулярными выражениями для поиска информации - https://github.com/Picculi/regex_patterns
-Управление Роботом через Arduino с Использованием Serial1 - https://github.com/SINERGIA228/TurtleBroChoiceNavigation
+Управление роботом через Arduino с использованием Serial1 - https://github.com/SINERGIA228/TurtleBroChoiceNavigation
 ```
 ## Основные команды для проверки роботоспособности робота:
 
